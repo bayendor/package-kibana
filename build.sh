@@ -19,9 +19,9 @@ if [[ $os == "centos" ]]; then
   # Fetch the latest code, build the libraries and
   # remove files we don't need
   cd $basedir/build_root_centos/usr/local
-  git clone https://github.com/rashidkpc/Kibana.git ./kibana
+  git clone https://github.com/elastic/kibana.git ./kibana
   cd kibana
-  bundle install --deployment
+  # bundle install --deployment
   rm -rf .git .travis.yml .gitignore
 
   # Copy the init file and make it executable
@@ -70,9 +70,9 @@ elif [[ $os == "debian" ]]; then
   # Fetch the latest code, build the libraries and
   # remove files we don't need
   cd $basedir/build_root_debian/usr/local
-  git clone git://github.com/rashidkpc/Kibana.git ./kibana
+  git clone https://github.com/elastic/kibana.git ./kibana
   cd kibana
-  bundle install --deployment
+  # bundle install --deployment
   rm -rf .git .travis.yml .gitignore
 
   # Copy the init file and make it executable
@@ -94,13 +94,13 @@ elif [[ $os == "debian" ]]; then
   fpm -s dir \
     -t deb \
     -n kibana \
-    -v 0.2.0 \
+    -v 4.0.2 \
     --iteration '1' \
     --license MIT \
     -a 'all' \
     --description 'Kibana is a web interface for Logstash.' \
-    --url 'http://kibana.org' \
-    --vendor 'Kibana.Org' \
+    --url 'https://www.elastic.co/products/kibana' \
+    --vendor 'Elastic' \
     --maintainer "$maintainer" \
     -d 'ruby' \
     --deb-user 'root' \
