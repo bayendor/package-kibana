@@ -1,11 +1,10 @@
 sudo su -
 
 cd ~; wget https://download.elasticsearch.org/kibana/kibana/kibana-4.0.2-linux-x64.tar.gz
+tar xvf kibana-*.tar.gz
 
 # Make deb package from tar file
-fpm -s dir -t deb --prefix /opt/kibana -n kibana -v 4.0.2 kibana-4.0.2-linux-x64.tar.gz
-
-tar xvf kibana-*.tar.gz
+fpm -s dir -t deb --prefix /opt -n kibana -v 4.0.2 kibana-4.0.2-linux-x64
 
 mkdir -p /opt/kibana
 
