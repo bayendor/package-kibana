@@ -1,3 +1,0 @@
-# Directory to place the PID file
-PID_DIR='/var/run'
-
